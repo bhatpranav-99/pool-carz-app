@@ -1,0 +1,57 @@
+<div class="head">
+    <a href="#"  rel="noopener noreferrer">PoolCarz</a>
+    <a href="#"  rel="noopener noreferrer">logout</a>
+</div>
+
+<div class="mainContent">
+    <h5>Book a ride</h5>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pool carz is an online application which enables users to share routes with others. You can either book a rider or offer a ride. Did we mention that this app is advertisement free? To add on tripof that its free of cost! So what are you waiting for? Check out the rides available and start Pcing!!</p>
+
+    <div class="btn-grp">
+        <button>To Gotham</button>
+        <button>From Gotham</button>
+        <button>others</button>
+    </div>
+
+    <div class="msg">
+        <p>Please select a ride!</p>
+    </div>
+
+
+   @if(!bookingStatus){
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Start Point</th>
+                    <th>End Point</th>
+                    <th>Seat Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(ele of rideData; track $index){
+                    <tr (click)="sendData(ele)" >
+                        <td>{{ele.startPoint}}</td>
+                        <td>{{ele.endPoint}}</td>
+                        <td>{{ele.seatAvailable}}</td>
+                    </tr >
+                }
+            </tbody>
+           </table>
+       </section>
+   }
+
+   
+   @if(selectedRow){
+    <section>
+        <app-ride-details [selectedRide]="selectedRow" (rideBooked)="bookingStatus=$event"></app-ride-details>
+    </section>
+   
+   }
+   
+
+
+
+
+</div>

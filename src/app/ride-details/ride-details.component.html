@@ -1,0 +1,42 @@
+
+
+
+<h4>Ride Details</h4>
+<section class="head">
+    <table>
+       
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Car</th>
+                <th>Seats Left</th>
+                <th>Pick up Point</th>
+                <th>Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr>
+                    <td>{{registeredUser.id}}</td>
+                    <td>{{registeredUser.name}}</td>
+                    <td>{{selectedRide.carName}}</td>
+                    <td>{{selectedRide.seatAvailable}}</td>
+                    <td>{{selectedRide.startPoint}}</td>
+                    <td>{{selectedRide.endPoint}}</td>
+                </tr>
+            
+        </tbody>
+    </table>
+    <div class="btn-div">
+        @if(!status){
+            <button (click)="bookingDone()">Book</button>
+        }@else {
+            <div class="booked-div">
+                <p>Booking done, Your Booking id :{{userBookingId}}</p>
+            <button class="cancel" (click)="bookingDone()">Cancel Booked Ride</button>  
+            </div>
+        }
+        <button>Offer A Ride </button>
+    </div>
+</section>
